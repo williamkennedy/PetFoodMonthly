@@ -38,3 +38,28 @@ end
 error Stripe::CardError do
 	env['sinatra.error'].message
 end
+
+#__END__
+#
+#@@ layout
+#  <!DOCTYPE html>
+#  <html>
+#  <head></head>
+#  <body>
+#  	<&= yield %>
+#  </body>
+#  </html>
+#
+#@@ index
+#  <form action="/charge" method="post" class="payment">
+#  	<article>
+#  		<label class="amount">
+#  			<span>Amount: $5.00</span>
+#  		</label>
+#  	</article>
+#
+#  	<script src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-key="<%= settings.publishable_key %>"></script>
+#  </form>
+#
+#@@ charge
+#  <h2>Thanks, you paid <strong>$5.00</strong>!</h2>  

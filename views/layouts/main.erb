@@ -266,11 +266,22 @@
 		<div class="container">
 			<h5>This will contain the Subscription form</h5>
 			<div class="row mtb">
+				<!--- Stripe code-->
+				<form action="/charge" method="post" class="payment">
+  					<article>
+  						<label class="amount">
+  				<span>Amount: $5.00</span>
+  						</label>
+  					</article>
+
+  					<script src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-key="<%= settings.publishable_key %>"></script>
+				</form>		
+				<!--- Stripe code-->		
 				<div class="col-md-1 centered">
 					<i class="icon ion-ios7-monitor-outline"></i>
 				</div>
-				<div class="col-md-3 w">
-					<h5>Retina Ready</h5>
+<!-->				<div class="col-md-3 w">					
+<!-->					<h5>Retina Ready</h5>
 					<hr>
 					<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
 				</div>
@@ -293,7 +304,7 @@
 					<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
 				</div>
 			</div><!--/row -->
-			<div class="row mtb">
+<!-->			<div class="row mtb">
 				<div class="col-md-1 centered">
 					<i class="icon ion-ios7-medkit-outline"></i>
 				</div>
@@ -321,7 +332,7 @@
 					<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
 				</div>
 			</div><!--/row -->
-		</div><!--/container -->
+<!-->		</div><!--/container -->
 		<div class="container">
 			<div class="row">
 				<div class="col-md-8 col-md-offset-2">
