@@ -14,3 +14,22 @@ Stripe.api_key = settings.secret_key
 get '/' do
     erb :"index", layout: :"layouts/main"
 end
+
+post '/charge' do
+	# Amount in cents
+	@amount = 500
+
+	customer = Stripe::Customer.create(
+		:email	=> 'customer@example.com',
+		:card	=> params[:stripeToken]
+		)
+
+	charge = Stripe::Charge.create(
+		:amount			=> @amount,
+		:description	=> 'Sinatra Charge',
+		:currency		=> 'usd',
+		:customer		=> customer.id
+		)
+
+	erb :charge
+end
