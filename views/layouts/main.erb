@@ -266,17 +266,18 @@
 		<div class="container">
 			<h5>This will contain the Subscription form</h5>
 			<div class="row mtb">
-				<!--- Stripe code-->
-				<form action="/charge" method="post" class="payment">
-  					<article>
-  						<label class="amount">
-  				<span>Amount: $5.00</span>
-  						</label>
-  					</article>
-
-  					<script src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-key="<%= settings.publishable_key %>"></script>
-				</form>		
-				<!--- Stripe code-->		
+				<!--- Removed some Stripe code from here-->
+				<form action="" method="POST">
+  					<script
+  					src="https://checkout.stripe.com/checkout.js"
+  					class="stripe-button"
+  					data-key="pk_test_dtKiAsfrG0TB0geRSIcXwAnc"
+					data-amount="2000"
+					data-name="Demo Site"
+					data-description="2 widgets ($20.00)"
+					data-image="/128x128.png">
+					</script>
+				</form>	
 				<div class="col-md-1 centered">
 					<i class="icon ion-ios7-monitor-outline"></i>
 				</div>

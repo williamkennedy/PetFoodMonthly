@@ -16,21 +16,32 @@ set :secret_key, ENV['SECRET_KEY']
 
 Stripe.api_key = settings.secret_key
 
+token = params[:stripeToken]
+
 post '/charge' do
 	# Amount in cents
 	@amount = 500
 
 	customer = Stripe::Customer.create(
 		:email	=> 'customer@example.com',
-		:card	=> params[:stripeToken]
-		)
+		:card	=> params[:stripeToken],
+		:plan 	=> 'gold'
+	)
 
 	charge = Stripe::Charge.create(
 		:amount			=> @amount,
 		:description	=> 'Sinatra Charge',
 		:currency		=> 'usd',
 		:customer		=> customer.id
-		)
+	)
+
+	plan = Stripe::Plan.create(
+	:amount		=> '2000',
+	:interval	=> 'month',
+	:name		=> 'Amazing Gold Plan',
+	:currency	=> 'usd',
+	:index		=> 'gold'
+	)
 
 	erb :charge
 end
