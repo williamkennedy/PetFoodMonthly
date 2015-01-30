@@ -16,7 +16,7 @@ set :secret_key, ENV['SECRET_KEY']
 
 Stripe.api_key = settings.secret_key
 
-token = params[:stripeToken]
+#token = params[:stripeToken]
 
 post '/charge' do
 	# Amount in cents
