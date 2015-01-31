@@ -1,0 +1,356 @@
+@import "variables.less";
+@import "mixins.less";
+
+[class*="col-"] {
+    &.span-centered {
+        margin-left: auto;
+        margin-right: auto;
+        float: none;
+    }
+}
+
+.centered {
+    .align-center;
+}
+
+.pricing-table {
+    font-family: @fontSans;
+    position: relative;
+
+    .title,
+    .price,
+    .label,
+    .button {
+        border-bottom: none !important;
+    }
+    
+    .title {
+        color: @clouds;
+        font-size: 18px;
+        font-weight: bold;
+        padding: 15px;
+        .align-center;
+    }
+
+    .label {
+        color: @clouds;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        display: block;
+        .align-center;
+        .border-radius(0);
+    }
+
+    .price {
+        position: relative;
+        font-size: 18px;
+        font-weight: bold;
+        background-color: @clouds;
+        padding: 15px;
+        .align-center;
+
+        .currency-symbol {
+            position: relative;
+            top: -17px;
+            color: darken(@clouds, 40%);
+        }
+        
+        strong {
+            font-size: 44px;
+            line-height: 44px;
+            display: inline-block;
+        }
+        
+        sup {
+            position: relative;
+            top: -20px;
+        }
+        
+        em {
+            position: relative;
+            bottom: -2px;
+            font-size: 14px;
+            font-weight: normal;
+            color: darken(@clouds, 25%);
+        }
+    }
+        
+    .button {
+        padding: 15px;
+        .align-center;
+        
+        .btn {
+            font-family: @fontSans;
+            font-weight: bold;
+            color: @clouds;
+            background-color: @clouds;
+            .transition(all 0.2s ease-in-out);
+            .border-radius(0);
+            
+            &:hover {
+                color: lighten(@clouds, 5%);
+                background-color: darken(@clouds, 5%);
+            }
+        }
+        
+        &.colored {
+            position: relative;
+            
+            &:after {
+                bottom: 100%;
+                border: solid transparent;
+                content: " ";
+                height: 0;
+                width: 0;
+	            position: absolute;
+	            pointer-events: none;    
+            }
+            
+            &:after {
+            	border-width: 5px;
+            	left: 50%;
+            	margin-left: -5px;               
+            }
+        }            
+    }
+
+    ul {
+        position: relative;
+        list-style: none;
+        margin: 0;
+        z-index: 1;
+        padding: 0;
+        .transition(all 0.2s ease-in-out);
+        
+        li {
+            color: darken(@clouds, 40%);
+            background-color: #ffffff;
+            padding: 10px;
+            border-bottom: 1px solid darken(lighten(@clouds, 5%), 5%);
+        }
+    }
+    
+    &.rounded {
+        ul {
+            .border-radius(@radius + @thickness);
+        }
+        
+        .title {
+            .border-top-left-radius(@radius);
+            .border-top-right-radius(@radius);
+        }
+        
+        .button {
+            .border-bottom-left-radius(@radius);
+            .border-bottom-right-radius(@radius);
+            
+            .btn {
+                .border-radius(@radius);
+            }
+        }
+    }
+
+    &.bordered {
+        ul {
+            border: @thickness solid lighten(@clouds, 3%);
+        }
+    }
+    
+    &.standout {
+        top: -24px;
+        margin-bottom: -24px;
+        
+        .label {
+            font-family: @fontSans;
+            text-shadow: none;
+        }
+        
+        .price {
+            .currency-symbol,
+            strong,
+            sup,
+            em {
+                color: @clouds;
+            }
+        }
+    }
+
+    &.plain {
+        li {
+            color: darken(@clouds, 40%);
+            background-color: #ffffff;
+            border-bottom: 1px solid #ffffff;
+            
+            &.button {
+                border-bottom: none;
+            }
+        } 
+        
+        .alt {
+            li {
+                background-color: lighten(@clouds, 4%);
+                border-bottom: 1px solid lighten(@clouds, 4%);
+            }
+            
+            .price {
+                .currency-symbol,
+                strong,
+                sup,
+                em {
+                    color: darken(@clouds, 40%);
+                }
+            }
+        }
+        
+        .alt-dark {  
+            li {
+                color: darken(@clouds, 40%);
+                background-color: @midnight-blue;
+                border-bottom: 1px solid @midnight-blue;
+            }
+        }
+        
+        &.standout {
+            .price {
+                background-color: #ffffff;
+
+                .currency-symbol,
+                strong,
+                sup {
+                    color: darken(@clouds, 40%);
+                }
+                
+                em {
+                    color: darken(@clouds, 30%);
+                }
+            }
+            
+            .label {
+                background-color: #ffffff;
+            }
+            
+            .alt {
+                .price {
+                    color: darken(@clouds, 40%);
+                    background-color: lighten(@clouds, 4%);
+                }
+                
+                .label {
+                    background-color: lighten(@clouds, 4%);
+                }
+            }
+            
+            .alt-dark {
+                .price {
+                    color: darken(@clouds, 40%);
+                    background-color: @midnight-blue;
+                }
+                
+                .label {
+                    background-color: @midnight-blue;
+                }
+            }
+        }
+    }
+
+    &.hover-animation {
+        .transition(all 0.3s ease-in-out);    
+    }
+    
+    .alt {
+        li {
+            background-color: lighten(@clouds, 4%);
+        }
+        
+        .price {
+            background-color: @clouds;
+        }
+    }
+    
+    .alt-dark {
+        color: @clouds;
+        
+        li {
+            background-color: @midnight-blue;
+            border-bottom: 1px solid darken(@midnight-blue, 3%);
+        }
+        
+        .price {
+            background-color: darken(@midnight-blue, 3%);
+        }
+    }
+
+}
+
+// Color Variations
+.turquoise {
+    .skin(@turquoise);
+}
+
+.green-sea {
+    .skin(@green-sea);
+}
+
+.emerald {
+    .skin(@emerald);
+}
+
+.nephritis {
+    .skin(@nephritis);
+}
+
+.peter-river {
+    .skin(@peter-river);
+}
+
+.belize-hole {
+    .skin(@belize-hole);
+}
+
+.amethyst {
+    .skin(@amethyst);
+}
+
+.wisteria {
+    .skin(@wisteria);
+}
+
+.wet-asphalt {
+    .skin(@wet-asphalt);
+}
+
+.sun-flower {
+    .skin(@sun-flower);
+}
+
+.orange {
+    .skin(@orange);
+}
+
+.carrot {
+    .skin(@carrot);
+}
+
+.pumpkin {
+    .skin(@pumpkin);
+}
+
+.alizarin {
+    .skin(@alizarin);
+}
+
+.midnight-blue {
+    .skin(@midnight-blue);
+}
+
+.pomegranate {
+    .skin(@pomegranate);
+}
+
+.concrete {
+    .skin(@concrete);
+}
+
+.asbestos {
+    .skin(@asbestos);
+}

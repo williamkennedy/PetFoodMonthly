@@ -1,0 +1,121 @@
+// Text Align
+.align-center {
+    text-align: center;
+}
+.align-left {
+    text-align: left;
+}
+.align-right {
+    text-align: right;
+}
+
+// Border Radius
+.border-radius(@radius) {
+  -webkit-border-radius: @radius;
+     -moz-border-radius: @radius;
+          border-radius: @radius;
+}
+
+// Single Corner Border Radius
+.border-top-left-radius(@radius) {
+  -webkit-border-top-left-radius: @radius;
+      -moz-border-radius-topleft: @radius;
+          border-top-left-radius: @radius;
+}
+.border-top-right-radius(@radius) {
+  -webkit-border-top-right-radius: @radius;
+      -moz-border-radius-topright: @radius;
+          border-top-right-radius: @radius;
+}
+.border-bottom-right-radius(@radius) {
+  -webkit-border-bottom-right-radius: @radius;
+      -moz-border-radius-bottomright: @radius;
+          border-bottom-right-radius: @radius;
+}
+.border-bottom-left-radius(@radius) {
+  -webkit-border-bottom-left-radius: @radius;
+      -moz-border-radius-bottomleft: @radius;
+          border-bottom-left-radius: @radius;
+}
+
+// Box shadow
+.box-shadow(@shadow) {
+  -webkit-box-shadow: @shadow;
+     -moz-box-shadow: @shadow;
+          box-shadow: @shadow;
+}
+
+// Transition
+.transition(@transition) {
+  -webkit-transition: @transition;
+     -moz-transition: @transition;
+       -o-transition: @transition;
+          transition: @transition;
+}
+
+// Skin
+.skin(@color) {
+    .title,
+    .alt .title,
+    .alt-dark .title {
+        background-color: @color;  
+    }
+    
+    .button {
+        .btn {
+            background-color: @color;
+            border: 1px solid @color;
+            
+            &:hover {
+                background-color: darken(@color, 5%);
+            }
+        }
+        
+        &.btn-hover-alt {
+            .btn {
+                &:hover {
+                    color: @color;
+                    background-color: #ffffff;
+                }
+            }
+        }
+
+        &.colored {
+            background-color: @color;
+            
+            &:after {
+                border-color: transparent;
+                border-bottom-color: @color;
+            }
+        }
+    }
+    
+    &.standout {
+        ul {
+            border: @thickness solid @color;
+        }
+        
+        .price,
+        .label {
+            background-color: darken(@color, 3%);
+        }           
+    }
+
+    &.hover-animation {
+        &:hover {
+            margin-top: -5px;
+            
+            &.bordered {
+                ul {
+                   border: @thickness solid @color;
+                }
+            }
+        }
+        
+        &.standout {
+            &:hover {
+                margin-top: -5px;
+            }
+        }
+    }
+}

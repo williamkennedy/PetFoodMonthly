@@ -31,7 +31,7 @@ post '/charge' do
 	charge = Stripe::Charge.create(
 		:amount			=> @amount,
 		:description	=> 'Sinatra Charge',
-		:currency		=> 'usd',
+    :currency		=> 'eur',
 		:customer		=> customer.id
 	)
 
