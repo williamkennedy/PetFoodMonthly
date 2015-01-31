@@ -296,9 +296,9 @@ input {
     display: block;
     width: 100%;
     background-image: center center;
-    height: auto;
+    height: 100%;
     -webkit-transition: all 0.4s ease;
-    transition: all 0.4s ease;
+  transition: all 0.4s ease;
 }
 .cbp-item-wrapper a:hover img {
     opacity: 0.8;
