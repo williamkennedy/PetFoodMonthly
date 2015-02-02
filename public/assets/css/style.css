@@ -300,7 +300,7 @@ input {
     -webkit-transition: all 0.4s ease;
   transition: all 0.4s ease;
 }
-.cbp-item-wrapper a:hover img {
+.cbp-item-wrapper /*a:hover*/ img {
     opacity: 0.8;
 }
 
