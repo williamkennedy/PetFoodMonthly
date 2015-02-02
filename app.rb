@@ -1,5 +1,5 @@
 require "sinatra"
-require "active_record"
+require "sinatra/activerecord"
 require "stripe"
 
 configure :development do
@@ -7,16 +7,8 @@ configure :development do
   set :port, 3000
 end
 
-class Article < ActiveRecord::Base
-end
-
 get '/' do
     erb :"index", layout: :"layouts/main"
-    Article.establish_connection(
-    	:adapter => "sqlite3",
-    	:database => "hw.db"
-    )
-    Article.first.title
 end
 
 # ---- Stripe Configuration --- #
