@@ -7,6 +7,8 @@ configure :development do
   set :port, 3000
 end
 
+set :database, {adapter: "sqlite3", database: "db/foo.sqlite3"}
+
 get '/' do
     erb :"index", layout: :"layouts/main"
 end
