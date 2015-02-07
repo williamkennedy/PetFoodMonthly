@@ -1,6 +1,7 @@
 require "sinatra"
 require "sinatra/activerecord"
 require "stripe"
+# Make sure to require models here. They will be loaded after activerecord
 
 configure :development do
   set :bind, '0.0.0.0'
