@@ -20,4 +20,18 @@ ActiveRecord::Schema.define(version: 20150207193857) do
     t.string "shipping_address"
   end
 
+  create_table "orders", force: :cascade do |t|
+    t.integer "customer_id"
+    t.string  "package_name"
+    t.string  "payment_status"
+    t.string  "shipping_status"
+  end
+
+  create_table "packages", force: :cascade do |t|
+    t.string  "name"
+    t.text    "description"
+    t.decimal "price",             precision: 8, scale: 2
+    t.integer "billing_frequency"
+  end
+
 end
